@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: $clr-bg;
+    color: $clr-white;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 87%;
+    max-width: 1110px;
+    margin: 0 auto;
+}
+

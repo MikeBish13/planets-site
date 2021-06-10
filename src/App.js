@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/main.css'
+import Header from './components/Header'
+import PlanetPage from './components/PlanetPage'
+import {useEffect} from 'react'
+import {useStore} from './store'
+
 
 function App() {
+  const {addPlanets} = useStore();
+  
+  useEffect(() => {
+    fetch('./data.json')
+    .then(res => res.json())
+    .then(data => addPlanets(data));
+  }, [addPlanets])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ backgroundImage: "url(/assets/background-stars.svg)" }}>
+      <Header />
+      <PlanetPage />
     </div>
   );
 }

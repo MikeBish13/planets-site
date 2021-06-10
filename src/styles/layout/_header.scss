@@ -1,0 +1,217 @@
+header {
+  padding: 1rem 0;
+  border-bottom: $page-border;
+  position: relative;
+  @include mq(tablet) {
+    padding: 2rem 0 1.6875rem;
+  }
+
+  .header-container {
+    width: 87%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mq(tablet) {
+      flex-direction: column;
+    }
+    @include mq(desktop) {
+      width: 96%;
+      flex-direction: row;
+    }
+  }
+
+  .navbar {
+    position: absolute;
+    left: 0;
+    top: 102%;
+    background: $clr-bg;
+    z-index: 100;
+    width: 100%;
+    padding: 44px 6% 67px;
+    height: 0;
+    visibility: hidden;
+    @include mq(tablet) {
+      visibility: visible;
+      height: auto;
+      position: initial;
+      padding: 0;
+      margin-top: 2.5rem;
+    }
+    @include mq(desktop) {
+      width: 50%;
+      margin-top: 0;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      @include mq(tablet) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    li {
+      cursor: pointer;
+      margin: 0;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      color: #ffffffb4;
+
+      &:not(:first-of-type) {
+        border-top: 1px solid #ffffff17;
+        @include mq(tablet) {
+          border-top: none;
+        }
+      }
+      &:first-of-type {
+        padding-top: 0;
+      }
+
+      &::after {
+        content: "";
+        height: 4px;
+        width: 100%;
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 100%;
+
+        @include mq(tablet) {
+          transition: $transition;
+        }
+        @include mq(desktop) {
+          top: -42px;
+        }
+      }
+
+      &:hover {
+        color: #ffffff;
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      h4 {
+        margin-right: auto;
+        margin-left: 1.5rem;
+        @include mq(tablet) {
+          margin: 0;
+        }
+      }
+
+      @include mq(tablet) {
+        padding: 0;
+        transition: $transition;
+        svg {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .navbar-active {
+    visibility: visible;
+    height: auto;
+  }
+
+  .hamburger {
+    cursor: pointer;
+    @include mq(tablet) {
+      display: none;
+    }
+  }
+
+  .logo {
+    text-transform: uppercase;
+    font-family: "Antonio", sans-serif;
+    font-size: 1.74rem;
+    line-height: 1.5;
+    letter-spacing: -1.05px;
+    font-weight: $fw-light;
+  }
+}
+
+.planet-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  @include mq(tablet) {
+    display: none;
+  }
+
+  &-Mercury {
+    background: $clr-mercury;
+  }
+  &-Venus {
+    background: $clr-venus;
+  }
+  &-Earth {
+    background: $clr-earth;
+  }
+  &-Mars {
+    background: $clr-mars;
+  }
+  &-Jupiter {
+    background: $clr-jupiter;
+  }
+  &-Saturn {
+    background: $clr-saturn;
+  }
+  &-Uranus {
+    background: $clr-uranus;
+  }
+  &-Neptune {
+    background: $clr-neptune;
+  }
+}
+
+.nav-item {
+  &-Mercury {
+    &::after {
+      background: #def4fc;
+    }
+  }
+  &-Venus {
+    &::after {
+      background: #f7cc7f;
+    }
+  }
+  &-Earth {
+    &::after {
+      background: #545bfe;
+    }
+  }
+  &-Mars {
+    &::after {
+      background: #ff6a45;
+    }
+  }
+  &-Jupiter {
+    &::after {
+      background: #ecad7a;
+    }
+  }
+  &-Saturn {
+    &::after {
+      background: #fccb6b;
+    }
+  }
+  &-Uranus {
+    &::after {
+      background: #65f0d5;
+    }
+  }
+  &-Neptune {
+    &::after {
+      background: #497efa;
+    }
+  }
+}

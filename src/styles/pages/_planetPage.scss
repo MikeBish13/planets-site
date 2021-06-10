@@ -1,0 +1,445 @@
+.planet-section {
+  text-align: center;
+  padding-top: 4rem;
+  position: relative;
+  @include mq(desktop) {
+      padding-top: 0;
+  }
+
+  .planet-main-container {
+    @include mq(desktop) {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      margin: 126px auto 87px;
+      max-width: 1110px;
+    }
+  }
+
+  &-top {
+    @include mq(tablet) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    @include mq(desktop) {
+      display: initial;
+      width: 40%;
+      max-width: 350px;
+      margin: 0;
+    }
+  }
+
+  &-top-details {
+    margin-bottom: 1.75rem;
+    @include mq(tablet) {
+      text-align: left;
+      width: 50%;
+    }
+    @include mq(desktop) {
+      width: 100%;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      @include mq(tablet) {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .main-para {
+      margin-bottom: 2rem;
+      @include mq(desktop) {
+          margin-bottom: 50px;
+      }
+    }
+
+    .link {
+      color: #ffffff7a;
+      a {
+        color: #ffffff7a;
+        text-decoration: underline;
+
+        img {
+          margin-left: 8px;
+        }
+      }
+    }
+    @include mq(desktop) {
+        margin-bottom: 40px;
+    }
+  }
+
+  &-img {
+      @include mq(desktop) {
+          width: 60%;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      &-geology-container {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+      }
+
+      .main-img-geology {
+          height: 30%;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-50%, -20%);
+          @include mq(tablet) {
+              left: 50%;
+              bottom: 10%;
+              transform: translate(-50%, 30%);
+          }
+          @include mq(desktop) {
+              width: 163px;
+              height: 199px;
+          }
+      }
+  }
+
+  &-top-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 6%;
+    border-bottom: $page-border;
+    @include mq(tablet) {
+      position: initial;
+      display: initial;
+      border-bottom: none;
+      width: 40%;
+      padding: 0;
+    }
+
+    span {
+      display: none;
+      @include mq(tablet) {
+        display: block;
+      }
+    }
+
+    h3 {
+      color: #ffffff7e;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        color: $clr-white;
+      }
+    }
+
+    .btn {
+      position: relative;
+      transition: $transition;
+      @include mq(tablet) {
+        display: flex;
+        justify-content: flex-start;
+        color: $clr-white;
+        border: 1px solid #ffffff34;
+        padding: 0.5rem 1.25rem;
+        &:not(:first-of-type) {
+          margin-top: 1rem;
+        }
+        &:hover {
+          background: #ffffff34;
+        }
+
+        span {
+          color: #ffffff7e;
+          margin-right: 0.875rem;
+        }
+      }
+      @include mq(desktop) {
+          padding: 12px 28px;
+      }
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+
+    .btn::before {
+      content: "";
+      height: 4px;
+      width: 100%;
+      opacity: 0;
+      position: absolute;
+      bottom: -1.25rem;
+      left: 0;
+      transition: $transition;
+      @include mq(tablet) {
+        display: none;
+      }
+    }
+
+    .btn-structure::after {
+      content: "Structure";
+    }
+    .btn-geology::after {
+      content: "Geology";
+    }
+  }
+
+  &-bottom {
+      margin-bottom: 56px;
+    @include mq(tablet) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h4 {
+      font-size: 0.5rem;
+      color: #ffffff7a;
+    }
+
+    &-box {
+      border: 1px solid #ffffff7a;
+      padding: 0.5rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &:not(:first-of-type) {
+        margin-top: 0.5rem;
+        @include mq(tablet) {
+          margin-top: 0;
+        }
+      }
+      @include mq(tablet) {
+        flex-direction: column;
+        width: 23%;
+        align-items: flex-start;
+        padding-top: 1rem;
+        padding-left: 1rem;
+        padding-bottom: 1rem;
+      }
+    }
+  }
+}
+
+.btn {
+  &-Mercury {
+    &::before {
+      background: #def4fc;
+    }
+  }
+  &-Venus {
+    &::before {
+      background: #f7cc7f;
+    }
+  }
+  &-Earth {
+    &::before {
+      background: #545bfe;
+    }
+  }
+  &-Mars {
+    &::before {
+      background: #ff6a45;
+    }
+  }
+  &-Jupiter {
+    &::before {
+      background: #ecad7a;
+    }
+  }
+  &-Saturn {
+    &::before {
+      background: #fccb6b;
+    }
+  }
+  &-Uranus {
+    &::before {
+      background: #65f0d5;
+    }
+  }
+  &-Neptune {
+    &::before {
+      background: #497efa;
+    }
+  }
+}
+
+#btn-Mercury-active {
+  color: $clr-white;
+  &::before {
+    opacity: 1;
+  }
+  @include mq(tablet) {
+    background: #419ebb;
+  }
+}
+#btn-Venus-active {
+  color: $clr-white;
+  &::before {
+    opacity: 1;
+  }
+  @include mq(tablet) {
+    background: #eda249;
+  }
+}
+#btn-Earth-active {
+  color: $clr-white;
+  &::before {
+    opacity: 1;
+  }
+  @include mq(tablet) {
+    background: #6d2ed5;
+  }
+}
+#btn-Mars-active {
+  color: $clr-white;
+  &::before {
+    opacity: 1;
+  }
+  @include mq(tablet) {
+    background: #d14c32;
+  }
+}
+#btn-Jupiter-active {
+  color: $clr-white;
+  &::before {
+    opacity: 1;
+  }
+  @include mq(tablet) {
+    background: #d83a34;
+  }
+}
+#btn-Saturn-active {
+  color: $clr-white;
+  &::before {
+    opacity: 1;
+  }
+  @include mq(tablet) {
+    background: #cd5120;
+  }
+}
+#btn-Uranus-active {
+  color: $clr-white;
+  &::before {
+    opacity: 1;
+  }
+  @include mq(tablet) {
+    background: #1ec1a2;
+  }
+}
+#btn-Neptune-active {
+  color: $clr-white;
+  &::before {
+    opacity: 1;
+  }
+  @include mq(tablet) {
+    background: #2d68f0;
+  }
+}
+
+.main-img-overview, .main-img-structure {
+  &-Mercury {
+    height: 111px;
+    margin: 95px 0;
+    @include mq(tablet) {
+      height: 184px;
+      margin: 146px 0 130px;
+    }
+    @include mq(desktop) {
+      height: initial;
+      margin: 0;
+    }
+  }
+  &-Venus {
+    height: 154px;
+    margin: 74px 0;
+    @include mq(tablet) {
+      height: 253px;
+      margin: 112px 0 95px;
+    }
+    @include mq(desktop) {
+      height: initial;
+      margin: 0;
+    }
+  }
+  &-Earth {
+    height: 173px;
+    margin: 64px 0;
+    @include mq(tablet) {
+      height: 285px;
+      margin: 96px 0 79px;
+    }
+    @include mq(desktop) {
+      height: initial;
+      margin: 0;
+    }
+  }
+  &-Mars {
+    height: 129px;
+    margin: 87px 0;
+    @include mq(tablet) {
+      height: 213px;
+      margin: 132px 0 115px;
+    }
+    @include mq(desktop) {
+      height: initial;
+      margin: 0;
+    }
+  }
+  &-Jupiter {
+    height: 224px;
+    margin: 39px 0;
+    @include mq(tablet) {
+      height: 369px;
+      margin: 54px 0 37px;
+    }
+    @include mq(desktop) {
+      height: initial;
+      margin: 0;
+    }
+  }
+  &-Saturn {
+    height: 256px;
+    margin: 24px 0;
+    @include mq(tablet) {
+      height: 422px;
+      margin: 27px 0 11px;
+    }
+    @include mq(desktop) {
+      height: initial;
+      margin: 0;
+    }
+  }
+  &-Uranus {
+    height: 176px;
+    margin: 63px 0;
+    @include mq(tablet) {
+      height: 290px;
+      margin: 93px 0 77px;
+    }
+    @include mq(desktop) {
+      height: initial;
+      margin: 0;
+    }
+  }
+  &-Neptune {
+    height: 173px;
+    margin: 64px 0;
+    @include mq(tablet) {
+      height: 285px;
+      margin: 96px 0 79px;
+    }
+    @include mq(desktop) {
+      height: initial;
+      margin: 0;
+    }
+  }
+}
